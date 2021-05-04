@@ -8,7 +8,11 @@
         android:id="@+id/homeFragment2"
         android:name="com.pepi.simpleappforwork.ui.favourites.FavouritesFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment2_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.pepi.simpleappforwork.ui.settings.SettingsFragment"
@@ -26,5 +30,18 @@
         android:id="@+id/allFragment"
         android:name="com.pepi.simpleappforwork.ui.all.AllFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_allFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.pepi.simpleappforwork.ui.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="recipe_item"
+            app:argType="com.pepi.simpleappforwork.data.Recipe" />
+    </fragment>
 </navigation>

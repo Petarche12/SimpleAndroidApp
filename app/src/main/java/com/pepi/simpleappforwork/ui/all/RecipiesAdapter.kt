@@ -10,8 +10,8 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.pepi.simpleappforwork.data.Recipe
 import com.pepi.simpleappforwork.databinding.RecipeViewBinding
 
-class Adapter(private val interaction: Interaction? = null) :
-    PagingDataAdapter<Recipe, Adapter.RecipeHolder>(DiffUtilCallback()) {
+class RecipiesAdapter(private val interaction: Interaction? = null) :
+    PagingDataAdapter<Recipe, RecipiesAdapter.RecipeHolder>(DiffUtilCallback()) {
 
     class DiffUtilCallback : DiffUtil.ItemCallback<Recipe>() {
         override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {

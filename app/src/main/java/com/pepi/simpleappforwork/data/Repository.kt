@@ -2,8 +2,10 @@ package com.pepi.simpleappforwork.data
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
 import com.pepi.simpleappforwork.api.RecipeApi
 import com.pepi.simpleappforwork.common.util.networkBoundResource
+import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,7 +13,7 @@ import javax.inject.Singleton
 class Repository
 @Inject
 constructor(private val unsplashApi: RecipeApi) {
-    private fun getSearch(query: String = "Cake") =
+    private fun getSearch(query: String = "Cake",scope: CoroutineScope) =
         Pager(
             config = PagingConfig(
                 pageSize = 10,
@@ -19,14 +21,14 @@ constructor(private val unsplashApi: RecipeApi) {
                 enablePlaceholders = false //da ne dava placeholders samata
             ),
             pagingSourceFactory = { RecipePagingSource(unsplashApi, query) }
-        ).flow
+        ).flow.cachedIn(scope)
 
-    fun getAllResults() = networkBoundResource(
+    fun getAllResults(scope: CoroutineScope) = networkBoundResource(
         query = {
-            getSearch()
+            getSearch(scope = scope)
         },
         fetch = {
-            getSearch()
+            getSearch(scope = scope)
         },
         saveFetchResult = {
         }
