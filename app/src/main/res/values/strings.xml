@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Navigation Component Tutorial</string>
+    <string name="fav">Fav</string>
+    <string name="all">All</string>
+    <string name="settings">settings</string>
+    <string name="terms_and_conditions">terms and conditions</string>
 </resources>
