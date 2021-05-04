@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Navigation Component Tutorial"
+rootProject.name = "Simple app for work Petarche"

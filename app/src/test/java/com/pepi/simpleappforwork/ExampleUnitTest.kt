@@ -1,4 +1,4 @@
-package com.codinginflow.navigationcomponenttutorial
+package com.pepi.simpleappforwork
 
 import org.junit.Test
 
