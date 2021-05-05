@@ -8,7 +8,7 @@
         android:id="@+id/homeFragment2"
         android:name="com.pepi.simpleappforwork.ui.favourites.FavouritesFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_favourites">
         <action
             android:id="@+id/action_homeFragment2_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -30,7 +30,7 @@
         android:id="@+id/allFragment"
         android:name="com.pepi.simpleappforwork.ui.all.AllFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_all" >
         <action
             android:id="@+id/action_allFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />

@@ -9,9 +9,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.pepi.simpleappforwork.data.Recipe
 import com.pepi.simpleappforwork.databinding.RecipeViewBinding
+import com.pepi.simpleappforwork.ui.common.InteractionInterface
 
-class RecipiesAdapter(private val interaction: Interaction? = null) :
-    PagingDataAdapter<Recipe, RecipiesAdapter.RecipeHolder>(DiffUtilCallback()) {
+class RecipesAdapter(private val interaction: InteractionInterface? = null) :
+    PagingDataAdapter<Recipe, RecipesAdapter.RecipeHolder>(DiffUtilCallback()) {
 
     class DiffUtilCallback : DiffUtil.ItemCallback<Recipe>() {
         override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
@@ -46,7 +47,7 @@ class RecipiesAdapter(private val interaction: Interaction? = null) :
     inner class RecipeHolder
     constructor(
         private val binding: RecipeViewBinding, //Change with adequate binding
-        private val interaction: Interaction?
+        private val interaction: InteractionInterface?
     ) : RecyclerView.ViewHolder(binding.root) {
 
         init {
@@ -69,9 +70,5 @@ class RecipiesAdapter(private val interaction: Interaction? = null) :
                 .into(image)
             text.text = item.title
         }
-    }
-
-    interface Interaction {
-        fun onItemSelected(position: Int, item: Recipe)
     }
 }
