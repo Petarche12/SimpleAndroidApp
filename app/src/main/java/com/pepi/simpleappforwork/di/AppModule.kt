@@ -1,6 +1,10 @@
 package com.pepi.simpleappforwork.di
 
+import android.app.Application
+import androidx.room.Room
 import com.pepi.simpleappforwork.api.RecipeApi
+import com.pepi.simpleappforwork.data.RecipeDao
+import com.pepi.simpleappforwork.data.RecipeDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +28,16 @@ object AppModule {
     @Singleton
     fun provideRecipeApi(retrofit: Retrofit): RecipeApi =
         retrofit.create(RecipeApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDatabase(app: Application): RecipeDatabase =
+        Room.databaseBuilder(app, RecipeDatabase::class.java, "recipe_database")
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideRecipeDatabaseDao(recipeDatabase: RecipeDatabase): RecipeDao =
+        recipeDatabase.recipeDao()
 
 }
