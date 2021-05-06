@@ -3,8 +3,8 @@ package com.pepi.simpleappforwork.di
 import android.app.Application
 import androidx.room.Room
 import com.pepi.simpleappforwork.api.RecipeApi
-import com.pepi.simpleappforwork.data.RecipeDao
-import com.pepi.simpleappforwork.data.RecipeDatabase
+import com.pepi.simpleappforwork.data.database.RecipeDao
+import com.pepi.simpleappforwork.data.database.RecipeDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

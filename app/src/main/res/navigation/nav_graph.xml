@@ -42,6 +42,6 @@
         tools:layout="@layout/fragment_details" >
         <argument
             android:name="recipe_item"
-            app:argType="com.pepi.simpleappforwork.data.Recipe" />
+            app:argType="com.pepi.simpleappforwork.data.model.Recipe" />
     </fragment>
 </navigation>

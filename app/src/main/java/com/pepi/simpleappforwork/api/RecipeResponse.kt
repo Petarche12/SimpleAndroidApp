@@ -1,6 +1,6 @@
 package com.pepi.simpleappforwork.api
 
-import com.pepi.simpleappforwork.data.Recipe
+import com.pepi.simpleappforwork.data.model.Recipe
 
 data class RecipeResponse(
     val number: Int,

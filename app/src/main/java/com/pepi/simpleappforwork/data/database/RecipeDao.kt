@@ -1,6 +1,7 @@
-package com.pepi.simpleappforwork.data
+package com.pepi.simpleappforwork.data.database
 
 import androidx.room.*
+import com.pepi.simpleappforwork.data.model.Recipe
 import kotlinx.coroutines.flow.Flow
 
 @Dao
