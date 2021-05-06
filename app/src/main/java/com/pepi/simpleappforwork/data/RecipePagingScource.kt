@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.pepi.simpleappforwork.api.RecipeApi
+import com.pepi.simpleappforwork.data.model.Recipe
 import retrofit2.HttpException
 import java.io.IOException
 

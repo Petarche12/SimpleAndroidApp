@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pepi.simpleappforwork.R
 import com.pepi.simpleappforwork.common.util.Resource
 import com.pepi.simpleappforwork.common.util.exhaustive
-import com.pepi.simpleappforwork.data.Recipe
+import com.pepi.simpleappforwork.common.util.initiateSimpleRecycleView
+import com.pepi.simpleappforwork.data.model.Recipe
 import com.pepi.simpleappforwork.databinding.FragmentFavouritesBinding
 import com.pepi.simpleappforwork.ui.MainActivity
 import com.pepi.simpleappforwork.ui.common.BaseFragment
@@ -35,11 +36,9 @@ class FavouritesFragment : BaseFragment<FragmentFavouritesBinding>(R.layout.frag
         (requireActivity() as MainActivity).setBottomNavVisibility(true)
         (requireActivity() as MainActivity).setToolbarVisibility(true)
 
-        binding.favouriteRecyclerView.apply {
-            adapter = myAdapter
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-        }
+        binding.favouriteRecyclerView.initiateSimpleRecycleView(
+            myAdapter,LinearLayoutManager(context),true
+        )
 
         favouritesViewModel.favouriteRecipes.observe(viewLifecycleOwner) {
             when (it) {

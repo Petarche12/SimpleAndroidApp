@@ -1,4 +1,4 @@
-package com.pepi.simpleappforwork.data
+package com.pepi.simpleappforwork.data.model
 
 import android.os.Parcelable
 import androidx.room.Entity

@@ -2,8 +2,8 @@ package com.pepi.simpleappforwork.ui.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pepi.simpleappforwork.data.Recipe
-import com.pepi.simpleappforwork.data.Repository
+import com.pepi.simpleappforwork.data.model.Recipe
+import com.pepi.simpleappforwork.data.RepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -11,15 +11,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    private val repository: Repository
+    private val repositoryImpl: RepositoryImpl
 ) : ViewModel() {
 
     fun insertRecipe(recipe: Recipe) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insertRecipe(recipe)
+        repositoryImpl.insertRecipe(recipe)
     }
 
     fun deleteRecipe(recipe: Recipe) = viewModelScope.launch(Dispatchers.IO) {
-        repository.deleteRecipe(recipe)
+        repositoryImpl.deleteRecipe(recipe)
     }
 
 }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.pepi.simpleappforwork.data.Recipe
+import com.pepi.simpleappforwork.data.model.Recipe
 import com.pepi.simpleappforwork.databinding.RecipeViewBinding
 import com.pepi.simpleappforwork.ui.common.InteractionInterface
 

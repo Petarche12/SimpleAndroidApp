@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pepi.simpleappforwork.R
 import com.pepi.simpleappforwork.common.util.Resource
 import com.pepi.simpleappforwork.common.util.exhaustive
-import com.pepi.simpleappforwork.data.Recipe
+import com.pepi.simpleappforwork.common.util.initiateSimpleRecycleView
+import com.pepi.simpleappforwork.data.model.Recipe
 import com.pepi.simpleappforwork.databinding.FragmentAllBinding
 import com.pepi.simpleappforwork.ui.MainActivity
 import com.pepi.simpleappforwork.ui.common.BaseFragment
@@ -34,11 +35,9 @@ class AllFragment : BaseFragment<FragmentAllBinding>(R.layout.fragment_all),
         (requireActivity() as MainActivity).setBottomNavVisibility(true)
         (requireActivity() as MainActivity).setToolbarVisibility(true)
 
-        binding.searchRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = myAdapter
-            setHasFixedSize(true)
-        }
+        binding.searchRecyclerView.initiateSimpleRecycleView(
+            myAdapter,LinearLayoutManager(context),true
+        )
         viewModel.recipes.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {

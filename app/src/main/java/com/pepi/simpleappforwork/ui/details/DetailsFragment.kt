@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.pepi.simpleappforwork.R
@@ -35,9 +36,11 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(R.layout.fragment_d
         setUpView()
         binding.detailsBtnAddToFavourites.setOnClickListener {
             saveRecipeToFavourites()
+            findNavController().navigateUp()
         }
         binding.detailsBtnDeleteFromFavourites.setOnClickListener {
             deleteRecipeFromFavourites()
+            findNavController().navigateUp()
         }
     }
 
