@@ -61,7 +61,7 @@ class AllFragment : BaseFragment<FragmentAllBinding>(R.layout.fragment_all),
                     }
                     is LoadState.Error -> {
                         handleError((loadStates.refresh as LoadState.Error).error) {
-
+                            myAdapter.retry()
                         }
                     }
                 }.exhaustive
