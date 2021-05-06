@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository {
     //DOCUMENTATION NEEDED
-    fun getAllResults(scope: CoroutineScope) : Flow<Resource<PagingData<Recipe>>>
+    fun getAllResults(scope: CoroutineScope) : Flow<Resource<out PagingData<Recipe>>>
     fun getFavouriteRecipes() : Flow<Resource<out List<Recipe>>>
     suspend fun insertRecipe(recipe: Recipe)
     suspend fun deleteRecipe(recipe: Recipe)
