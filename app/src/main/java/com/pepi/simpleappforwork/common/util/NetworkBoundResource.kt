@@ -9,9 +9,17 @@ inline fun <ResultType, RequestType> networkBoundResource(
     crossinline shouldFetch: (ResultType) -> Boolean = { true }
 ) = flow {
 
-    val data = query().first()
+    var data: ResultType? = null
 
-    val flow = if (shouldFetch(data)) {
+    try {
+        data = query().first()
+    }
+    catch (e: Throwable)
+    {
+        Resource.Error(e, data)
+    }
+
+    val flow = if (shouldFetch(data!!)) {  //this assertion is not good here it is just in this case because for sure data wont be null
         emit(Resource.Loading(data))
 
         try {

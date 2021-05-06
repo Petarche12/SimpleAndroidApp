@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pepi.simpleappforwork.R
 import com.pepi.simpleappforwork.common.util.Resource
 import com.pepi.simpleappforwork.common.util.exhaustive
+import com.pepi.simpleappforwork.common.util.handleError
 import com.pepi.simpleappforwork.common.util.initiateSimpleRecycleView
 import com.pepi.simpleappforwork.data.model.Recipe
 import com.pepi.simpleappforwork.databinding.FragmentFavouritesBinding
@@ -43,7 +44,7 @@ class FavouritesFragment : BaseFragment<FragmentFavouritesBinding>(R.layout.frag
         favouritesViewModel.favouriteRecipes.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {
-
+                    it.throwable?.let { it1 -> handleError(it1,null) }
                 }
                 is Resource.Loading -> {
 
